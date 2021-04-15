@@ -7,13 +7,113 @@
   <title>My first apppli Angular</title>
 </head>
 <body>
-  <h1>{{array[0]}}</h1>
-  <p>{{title}}</p>
-  <h2>{{array[1]}}</h2>
-  <button (click)="handleClick()">Click on me !</button>
-  <img [src]=source alt=""/>
-  <h1>Hello there</h1>
-  
-  
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-user"></i> Users List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-plus"></i> New User</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-5">
+          <h1><i class="fa fa-users"></i> {{numberUsers}} Users</h1>
+        </div>
+        <div class="col-lg-3 d-flex justify-content-center align-items-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active bg-primary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> All
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Active
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> Inactive
+            </label>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+          <form class="form-inline">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Type your key word" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  <div class="container">
+    <div class="row mt-5">
+      <table class="table table-bordered text-center align-middle">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nat. ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Company</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Birth Date</th>
+            <th scope="col">Picture</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>AY376</td>
+            <td>Bradley Harrisson Downs</td>
+            <td>bradleydowns@se</td>
+            <td>SECURIA</td>
+            <td>474 Bragg Court</td>
+            <td>+1 (915) 402-3253</td>
+            <td>15/11/2000</td>
+            <td><img [src]=source alt="" style="width: 50px;"></td>
+            <td><span class="badge badge-danger">Inactive</span></td>
+            <td>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-primary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-pencil"></i></label>
+                <label class="btn btn-danger">
+                  <input type="radio" name="options" id="option3" autocomplete="off"><i class="fa fa-trash"></i></label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container">
+    <nav aria-label="...">
+      <ul class="pagination pagination-sm">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+    </nav>
+  </div>
+
+
+  </main>
+
 </body>
 </html>
