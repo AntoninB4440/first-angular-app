@@ -1,5 +1,5 @@
 export interface User {
-    index: number;
+    id: number;
     natID: number;
     isActive: boolean;
     picture: string;
