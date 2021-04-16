@@ -76,23 +76,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>AY376</td>
-            <td>Bradley Harrisson Downs</td>
-            <td>bradleydowns@se</td>
-            <td>SECURIA</td>
-            <td>474 Bragg Court</td>
-            <td>+1 (915) 402-3253</td>
-            <td>15/11/2000</td>
-            <td><img [src]=source alt="" style="width: 50px;"></td>
-            <td><span class="badge badge-danger">Inactive</span></td>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.index}}</th>
+            <td>{{user.natID}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.company}}</td>
+            <td>{{user.address | slice:0:20 }}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.birthDate| date }}</td>
+            <td><img [src]=user.picture alt="" style="width: 50px;"></td>
             <td>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-pencil"></i></label>
-                <label class="btn btn-danger">
-                  <input type="radio" name="options" id="option3" autocomplete="off"><i class="fa fa-trash"></i></label>
+              <span [ngClass]="user.isActive ? 'badge badge-success' : 'badge badge-danger'" class="text-white">{{user.isActive ? "Actif" : "Inactif"}}</span>
+              <!-- <span *ngIf="user.isActive" class="badge badge-success text-white">
+                Valide
+              </span>
+              <span *ngIf="!user.isActive" class="badge badge-danger text-white">
+                Invalide
+              </span> -->
+            </td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic exemple">
+                <a type="button" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                <a type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
               </div>
             </td>
           </tr>
@@ -111,8 +117,6 @@
       </ul>
     </nav>
   </div>
-
-
   </main>
 
 </body>
