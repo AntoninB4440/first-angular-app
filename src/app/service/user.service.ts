@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class UserService {
 
   constructor() { }
 
-  get() {
+  get() : User[] {
     return [
       {
         "index": 1,
