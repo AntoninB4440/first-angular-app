@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { User } from '../../models/user';
 
 @Injectable({
@@ -14,8 +13,8 @@ export class UserService {
     this.baseUrl = 'http://localhost:3000/users';
    }
 
-  get() : Observable<User[]>{
-    return this.http.get<User[]>(this.baseUrl);
+  get(page: number, limit:number) {
+    return this.http.get<User[]>(this.baseUrl+"?_page="+page+"&_limit="+limit, {observe: "response"});
   }
 
   create(user: User) {
