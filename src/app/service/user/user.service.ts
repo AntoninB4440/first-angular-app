@@ -13,8 +13,13 @@ export class UserService {
     this.baseUrl = 'http://localhost:3000/users';
    }
 
-  get(page: number, limit:number) {
-    return this.http.get<User[]>(this.baseUrl+"?_page="+page+"&_limit="+limit, {observe: "response"});
+  get(page: number, limit: number, query: any, state: string) {
+    
+    let request = this.baseUrl + "?_page=" + page + "&_limit=" + limit + "&q=" + query;
+
+    if (state === 'true' || state === 'false') request += "&isActive=" + state;
+
+    return this.http.get<User[]>(request, {observe: "response"});
   }
 
   create(user: User) {
