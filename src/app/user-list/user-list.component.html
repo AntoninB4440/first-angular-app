@@ -5,14 +5,14 @@
       </div>
       <div class="col-lg-3 d-flex justify-content-center align-items-center">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary " [ngClass]="{'active bg-primary': isActive === 'All'}">
-            <input type="radio" name="options" id="option1" autocomplete="off" (click)="showActive('All')"> All
+          <label class="btn btn-secondary " [ngClass]="{'active bg-primary': query.state === ''}">
+            <input type="radio" name="options" id="option1" autocomplete="off" (click)="filterByState()"> All
           </label>
           <label class="btn btn-secondary" [ngClass]="{'active bg-primary': isActive === 'true'}">
-            <input type="radio" name="options" id="option2" autocomplete="off" (click)="showActive('true')"> Active
+            <input type="radio" name="options" id="option2" autocomplete="off" (click)="filterByState(true)"> Active
           </label>
           <label class="btn btn-secondary" [ngClass]="{'active bg-primary': isActive === 'false'}">
-            <input type="radio" name="options" id="option3" autocomplete="off" (click)="showActive('false')"> Inactive
+            <input type="radio" name="options" id="option3" autocomplete="off" (click)="filterByState(false)"> Inactive
           </label>
         </div>
       </div>

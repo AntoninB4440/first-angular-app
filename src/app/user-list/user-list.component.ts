@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
   pagination: any;
   pages: any;
-  query: any = '';
+  query: any;
   isActive: string = 'All';
 
   constructor(private userService : UserService) {
@@ -25,13 +25,13 @@ export class UserListComponent implements OnInit {
       itemsPerPage: 6,
       totalPages: 0,
       totalElement: 0
-      
-    }
+    };
     this.populateUser();
+    this.query = {q : '' , state : ''}
   }
 
   populateUser() {
-    this.userService.get(this.pagination.currentPage, this.pagination.itemsPerPage, this.query, this.isActive).subscribe((response: any) => {
+    this.userService.get(this.pagination.currentPage, this.pagination.itemsPerPage, _.values(this.query).join("")).subscribe((response: any) => {
       this.pagination.totalElement = response.headers.get('X-Total-Count');
       this.pagination.totalPages = this.getTotalPage(response.headers.get('X-Total-Count'));
       this.pages = _.range(1, this.pagination.totalPages + 1);
@@ -52,15 +52,20 @@ export class UserListComponent implements OnInit {
   }
 
   filter(event: any) {
-    this.query = event.target.value
+    this.query.q = '&q=' + event.target.value
     this.pagination.currentPage = 1;
     this.populateUser();
   }
 
-  showActive(state: string) {
-    this.isActive = state;
+  filterByState(state: any = undefined) {
     this.pagination.currentPage = 1;
+    if (state === undefined) {
+      this.query.state = ''
+    } else {
+      this.query.state = '&isActive='+state
+    }
     this.populateUser();
+    console.log(this.query)
   }
 
 }
