@@ -80,7 +80,7 @@
 <div class="container">
   <nav aria-label="Page navigation example">
     <ul  class="pagination justify-content-center">
-      <li class="page-item" *ngFor="let page of pages" [ngClass]="{'active': pagination.currentPage === page}"><a class="page-link" href="#" (click)="paginate(page)">{{page}}</a></li>
+      <li class="page-item" *ngFor="let page of pages" [ngClass]="{'active': pagination.currentPage === page}"><a class="page-link" (click)="paginate(page)">{{page}}</a></li>
     </ul>
   </nav>
 </div>
