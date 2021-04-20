@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-users-add',
@@ -10,6 +12,10 @@ export class UsersAddComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  saveUser(form: NgForm) {
+    console.log('form', form.value);
   }
 
 }
