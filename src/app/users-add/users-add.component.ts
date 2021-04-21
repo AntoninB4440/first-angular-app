@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import * as _ from 'underscore';
 import { UserService } from '../service/user/user.service';
@@ -15,7 +16,7 @@ export class UsersAddComponent implements OnInit {
 
   
 
-  constructor(private userService : UserService, private toastr: ToastrService) { }
+  constructor(private userService : UserService, private toastr: ToastrService, private router : Router) { }
 
   ngOnInit(): void {
       
@@ -27,6 +28,9 @@ export class UsersAddComponent implements OnInit {
         if (res) {
           console.log(res);
           this.showSuccess();
+          setTimeout(() => {
+            this.router.navigate(['users']);
+        }, 5000);  //5s
         }
       })
     } else {
@@ -35,7 +39,7 @@ export class UsersAddComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Your user has been created correctly');
+    this.toastr.success('Your user has been created correctly','You will be redirected to the users list');
   }
 
   showFailed() {
