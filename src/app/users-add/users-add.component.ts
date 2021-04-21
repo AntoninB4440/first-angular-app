@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import * as _ from 'underscore';
+import { UserService } from '../service/user/user.service';
 
 
 @Component({
@@ -9,13 +11,18 @@ import { NgForm } from '@angular/forms';
 })
 export class UsersAddComponent implements OnInit {
 
-  constructor() { }
+  
+
+  constructor(private userService : UserService) { }
 
   ngOnInit(): void {
+      
   }
 
   saveUser(form: NgForm) {
-    console.log('form', form.value);
+    if (form.valid) {
+      this.userService.create(form.value).subscribe(res => console.log(res))
+    }
   }
 
 }
