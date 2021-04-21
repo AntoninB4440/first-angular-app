@@ -24,6 +24,9 @@ export class UsersAddComponent implements OnInit {
 
   saveUser(form: NgForm) {
     if (form.valid) {
+      if (!form.value.isActive) {
+        form.value.isActive = false
+      }
       this.userService.create(form.value).subscribe(res => {
         if (res) {
           console.log(res);
