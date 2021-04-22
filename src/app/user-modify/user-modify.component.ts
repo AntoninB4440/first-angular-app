@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../service/user/user.service';
@@ -12,7 +13,7 @@ export class UserModifyComponent implements OnInit {
 
   user: any;
 
-  constructor(private userService: UserService, private route: ActivatedRoute,private toastr: ToastrService) {
+  constructor(private userService: UserService, private route: ActivatedRoute,private toastr: ToastrService, private router : Router) {
     
    }
 
@@ -26,7 +27,19 @@ export class UserModifyComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.put(this.user).subscribe( res => console.log(res));
+    this.userService.put(this.user).subscribe(res => {
+      if (res) {
+        console.log(res);
+        this.showSuccess();
+        setTimeout(() => {
+          this.router.navigate(['users']);
+      }, 3000);  //5s
+      }
+    })
+  }
+  
+  showSuccess() {
+    this.toastr.success('Your user has been created correctly','You will be redirected to the users list in 3 sec');
   }
 
   
