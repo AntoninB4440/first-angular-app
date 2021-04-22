@@ -48,7 +48,7 @@ export class UserModifyComponent implements OnInit {
     this.toastr.success('Your user has been edited correctly','You will be redirected to the users list in 3 sec');
   }
 
-  test(date: any) {
+  test(date: Date) {
     console.log(date)
   }
 

@@ -53,8 +53,9 @@ export class UserListComponent implements OnInit {
     this.populateUser();
   }
 
-  filter(event: any) {
-    this.query.q = '&q=' + event.target.value
+  filter(event: Event) {
+    console.log((event.target as HTMLInputElement).value)
+    this.query.q = '&q=' + (event.target as HTMLInputElement).value
     this.pagination.currentPage = 1;
     this.populateUser();
   }
