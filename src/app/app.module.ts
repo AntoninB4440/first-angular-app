@@ -10,6 +10,7 @@ import { UsersAddComponent } from './users-add/users-add.component'
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserModifyComponent } from './user-modify/user-modify.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HeaderComponent,
     UserListComponent,
-    UsersAddComponent
+    UsersAddComponent,
+    UserModifyComponent
   ],
   imports: [
     BrowserModule,

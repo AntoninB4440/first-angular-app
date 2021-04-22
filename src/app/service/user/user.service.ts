@@ -20,13 +20,17 @@ export class UserService {
     return this.http.get<User[]>(request, {observe: "response"});
   }
 
+  getById(id: number) {
+    return this.http.get<User[]>(this.baseUrl+"?id="+id)
+  }
+
   create(user: User) {
     console.log(user)
     return this.http.post(this.baseUrl, user);
   }
 
   put(user: User) {
-    return this.http.put(this.baseUrl + user.id, user);
+    return this.http.put(this.baseUrl + `/${user.id}`, user);
   }
 
   delete(id: string) {

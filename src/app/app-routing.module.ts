@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserModifyComponent } from './user-modify/user-modify.component';
 import { UsersAddComponent } from './users-add/users-add.component';
 
 const routes: Routes = [
@@ -11,8 +12,12 @@ const routes: Routes = [
     path : "users/add" , component : UsersAddComponent 
   },
   {
+    path : "users/modify/:id" , component : UserModifyComponent
+  },
+  {
     path : "**" , redirectTo : "users"
-  }
+  },
+
 ];
 
 @NgModule({

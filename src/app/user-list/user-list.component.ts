@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as _ from 'underscore';
 import { User } from '../models/user';
 import { UserService } from '../service/user/user.service';
+
 
 @Component({
   selector: 'app-user-list',
@@ -16,7 +18,7 @@ export class UserListComponent implements OnInit {
   query: any;
   isActive: string = 'All';
 
-  constructor(private userService : UserService) {
+  constructor(private userService : UserService, private route : Router) {
   }
 
   ngOnInit(): void {
