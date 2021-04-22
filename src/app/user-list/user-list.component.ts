@@ -54,7 +54,6 @@ export class UserListComponent implements OnInit {
   }
 
   filter(event: Event) {
-    console.log((event.target as HTMLInputElement).value)
     this.query.q = '&q=' + (event.target as HTMLInputElement).value
     this.pagination.currentPage = 1;
     this.populateUser();
@@ -65,7 +64,7 @@ export class UserListComponent implements OnInit {
     if (state === undefined) {
       this.query.state = ''
     } else {
-      this.query.state = '&isActive='+state
+      this.query.state = '&isActive='+ state
     }
     this.populateUser();
     console.log(this.query)

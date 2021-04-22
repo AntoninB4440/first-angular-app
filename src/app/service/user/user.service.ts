@@ -13,7 +13,7 @@ export class UserService {
     this.baseUrl = 'http://localhost:3000/users/';
    }
 
-  get(page: number, limit: number, query: any) {
+  get(page: number, limit: number, query: string) {
     
     let request = this.baseUrl + "?_page=" + page + "&_limit=" + limit  + query;
 
