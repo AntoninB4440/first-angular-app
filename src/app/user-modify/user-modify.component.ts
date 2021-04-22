@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from '../models/user';
 import { UserService } from '../service/user/user.service';
 
 @Component({
@@ -11,17 +11,33 @@ import { UserService } from '../service/user/user.service';
 })
 export class UserModifyComponent implements OnInit {
 
-  user: any;
+  user: User;
 
-  constructor(private userService: UserService, private route: ActivatedRoute,private toastr: ToastrService, private router : Router) {
-    
+  constructor(private userService: UserService, private route: ActivatedRoute, private toastr: ToastrService, private router: Router) {
+    this.user = {
+      id: 0,
+      natID: 0,
+      isActive: false,
+      picture:'',
+      name: '',
+      company:'',
+      email: '',
+      phone: '',
+      address: '',
+      birthDate: '',
+      token: '',
+    }
    }
 
   ngOnInit(): void {
+    this.populateUser();
+  }
+
+  populateUser() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.userService.getById(id).subscribe(res => {
-      this.user = res[0];
-      console.log(this.user)
+      this.user = res;
+      console.log('user',this.user);
     }
     );
   }
@@ -34,12 +50,18 @@ export class UserModifyComponent implements OnInit {
         setTimeout(() => {
           this.router.navigate(['users']);
       }, 3000);  //5s
+      } else {
+        this.toastr.error('Your user Something went wrong during the editing');
       }
     })
   }
   
   showSuccess() {
-    this.toastr.success('Your user has been created correctly','You will be redirected to the users list in 3 sec');
+    this.toastr.success('Your user has been edited correctly','You will be redirected to the users list in 3 sec');
+  }
+
+  test(date: any) {
+    console.log(date)
   }
 
   

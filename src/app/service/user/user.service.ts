@@ -10,7 +10,7 @@ export class UserService {
   baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/users';
+    this.baseUrl = 'http://localhost:3000/users/';
    }
 
   get(page: number, limit: number, query: any) {
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   getById(id: number) {
-    return this.http.get<User[]>(this.baseUrl+"?id="+id)
+    return this.http.get<User>(this.baseUrl+id)
   }
 
   create(user: User) {

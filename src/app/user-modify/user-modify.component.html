@@ -19,7 +19,7 @@
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputBirthDate">Birth Date</label>
-                    <input type="date" class="form-control" id="inputBirthDate" [ngModel] = "user.birthDate | date : 'yyyy-MM-dd'"  (onModelChange)="user.birthDate=$event" name="birthDate">
+                    <input type="date" class="form-control" id="inputBirthDate" [ngModel] = "user.birthDate | date : 'yyyy-MM-dd'" name="birthDate" (ngModelChange)="user.birthDate = $event">
                   </div>
                 </div>
                 <div class="form-group">
