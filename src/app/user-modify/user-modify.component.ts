@@ -33,7 +33,6 @@ export class UserModifyComponent implements OnInit {
   onSubmit() {
     this.userService.put(this.user).subscribe(res => {
       if (res) {
-        console.log(res);
         this.showSuccess();
         setTimeout(() => {
           this.router.navigate(['users']);
@@ -47,11 +46,5 @@ export class UserModifyComponent implements OnInit {
   showSuccess() {
     this.toastr.success('Your user has been edited correctly','You will be redirected to the users list in 3 sec');
   }
-
-  test(date: Date) {
-    console.log(date)
-  }
-
-  
 
 }

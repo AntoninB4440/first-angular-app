@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import * as _ from 'underscore';
 import { User } from '../models/user';
 import { UserService } from '../service/user/user.service';
@@ -18,7 +19,7 @@ export class UserListComponent implements OnInit {
   query: any;
   isActive: string = 'All';
 
-  constructor(private userService : UserService, private route : Router) {
+  constructor(private userService : UserService, private route : Router, private toastr : ToastrService) {
   }
 
   ngOnInit(): void {
@@ -68,6 +69,17 @@ export class UserListComponent implements OnInit {
     }
     this.populateUser();
     console.log(this.query)
+  }
+
+  deleteUser(id: number) {
+    this.userService.delete(id).subscribe(res => {
+      if (res) {
+        this.toastr.success('The user have been correctly deleted');
+        this.populateUser()
+      } else {
+        this.toastr.error('Sorry, something when wrong during the operation')
+      }
+    })   
   }
 
 }

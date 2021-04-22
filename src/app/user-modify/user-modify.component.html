@@ -7,11 +7,12 @@
                     <i class="fa fa-user"></i> Create a new user
                 </h3>
             </div>
-            <form #userForm='ngForm' (ngSubmit)="onSubmit()">
+            <form>
                 <div class="form-row">
                   <div class="form-group col-md-3">
                     <label for="inputNationalId">National ID</label>
-                    <input type="number" class="form-control" id="inputNationalId" [(ngModel)]="user.natID" name="natID" disabled>
+                    <input type="number" class="form-control" id="inputNationalId" [(ngModel)]="user.natID" name="natID" #natID='ngModel' required>
+                    <div [hidden]="natID.valid || natID.pristine" class="alert alert-danger">Your natational Id is required</div>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputName">Name</label>
@@ -51,7 +52,7 @@
                     </div>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary" [disabled]="userForm.form.invalid">Sign in</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!email.valid || !natID.valid" (click)="onSubmit()">Sign in</button>
               </form>
             
         </div>

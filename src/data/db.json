@@ -7,24 +7,11 @@
       "picture": "http://placehold.it/32x32",
       "name": "Antonin Barcelo",
       "company": "Test",
-      "email": "test@gmail.com",
+      "email": "test2@gmail.com",
       "phone": "+33678662556",
       "address": "128 Impasse des Nymphéas , 44300 , Nantes",
       "birthDate": "2021-04-12",
       "token": "7716603d-bdd7-4e96-a4ed-8b7c69d77427"
-    },
-    {
-      "id": 2,
-      "natID": 5402,
-      "isActive": true,
-      "picture": "http://placehold.it/32x32",
-      "name": "Oneill Larsen",
-      "company": "CEDWARD",
-      "email": "oneilllarsen@cedward.com",
-      "phone": "+1 (991) 432-3194",
-      "address": "139 Montague Street, Breinigsville, Minnesota, 7508",
-      "birthDate": "Fri Apr 16 2021 10:28:30 GMT+0200 (heure d’été d’Europe centrale)",
-      "token": "ee867534-5087-4431-9b95-5f94e3675167"
     },
     {
       "id": 3,
