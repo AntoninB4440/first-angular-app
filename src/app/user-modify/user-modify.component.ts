@@ -11,22 +11,10 @@ import { UserService } from '../service/user/user.service';
 })
 export class UserModifyComponent implements OnInit {
 
-  user: User;
+  user = {} as User;
 
   constructor(private userService: UserService, private route: ActivatedRoute, private toastr: ToastrService, private router: Router) {
-    this.user = {
-      id: 0,
-      natID: 0,
-      isActive: false,
-      picture:'',
-      name: '',
-      company:'',
-      email: '',
-      phone: '',
-      address: '',
-      birthDate: '',
-      token: '',
-    }
+   
    }
 
   ngOnInit(): void {

@@ -13,8 +13,8 @@ import { UserService } from '../service/user/user.service';
 export class UserListComponent implements OnInit {
 
   users: User[] = [];
-  pagination: any;
-  pages: any;
+  pagination: any ;
+  pages: any ;
   query: any;
   isActive: string = 'All';
 
