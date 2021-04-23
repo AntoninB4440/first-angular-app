@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserModifyComponent } from './user-modify/user-modify.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { UserModifyComponent } from './user-modify/user-modify.component';
     HeaderComponent,
     UserListComponent,
     UsersAddComponent,
-    UserModifyComponent
+    UserModifyComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { UserModifyComponent } from './user-modify/user-modify.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

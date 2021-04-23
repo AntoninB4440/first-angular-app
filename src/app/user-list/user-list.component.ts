@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import * as _ from 'underscore';
+import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 import { User } from '../models/user';
 import { UserService } from '../service/user/user.service';
 
@@ -19,7 +21,7 @@ export class UserListComponent implements OnInit {
   query: any;
   isActive: string = 'All';
 
-  constructor(private userService : UserService, private route : Router, private toastr : ToastrService) {
+  constructor(private userService : UserService, protected modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -71,15 +73,9 @@ export class UserListComponent implements OnInit {
     console.log(this.query)
   }
 
-  deleteUser(id: number) {
-    this.userService.delete(id).subscribe(res => {
-      if (res) {
-        this.toastr.success('The user have been correctly deleted');
-        this.populateUser()
-      } else {
-        this.toastr.error('Sorry, something when wrong during the operation')
-      }
-    })   
+  deleteUser(user : User) {
+    let modal = this.modalService.open(DeleteModalComponent);
+    modal.componentInstance.user = user;
   }
 
 

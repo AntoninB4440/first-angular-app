@@ -69,9 +69,10 @@
           <td>
             <div class="btn-group" role="group" aria-label="Basic exemple">
               <a type="button" class="btn btn-info" routerLink="/users/modify/{{user.id}}"><i class="fa fa-pencil"></i></a>
-              <a type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#Modal'+user.id" ><i class="fa fa-trash"></i></a>
+              <a type="button" class="btn btn-danger" (click)="deleteUser(user)"><i class="fa fa-trash"></i></a>
             </div>
           </td>
+
           <!-- Modal -->
           <div class="modal fade" id="Modal{{user.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -90,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteUser(user.id)">Delete user</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Delete user</button>
                 </div>
               </div>
             </div>
