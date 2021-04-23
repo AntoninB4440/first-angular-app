@@ -24,6 +24,10 @@ export class UserService {
     return this.http.get<User>(this.baseUrl+id)
   }
 
+  getByEmail(email: string) {
+    return this.http.get<User>(this.baseUrl + "?email=" + email);
+  }
+
   create(user: User) {
     console.log(user)
     return this.http.post(this.baseUrl, user);
