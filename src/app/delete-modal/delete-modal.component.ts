@@ -17,7 +17,7 @@ export class DeleteModalComponent implements OnInit {
   constructor( private modalService : NgbModal, private activeModal: NgbActiveModal, private userService : UserService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    console.log(this.user)
+    //console.log(this.user)
   }
 
   open() {
@@ -33,6 +33,7 @@ export class DeleteModalComponent implements OnInit {
       if (res) {
         this.close();
         this.toastr.success('The user have been deleted correctly');
+        window.location.reload()
       } else {
         this.close();
         this.toastr.error('Something went rwrong during the processus');
