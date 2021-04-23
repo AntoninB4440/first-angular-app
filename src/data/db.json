@@ -14,19 +14,6 @@
       "token": "7716603d-bdd7-4e96-a4ed-8b7c69d77427"
     },
     {
-      "id": 3,
-      "natID": 22245,
-      "isActive": true,
-      "picture": "http://placehold.it/32x32",
-      "name": "Hampton Kirk",
-      "company": "HIVEDOM",
-      "email": "hamptonkirk@hivedom.com",
-      "phone": "+1 (833) 512-3638",
-      "address": "792 Hancock Street, Cassel, Massachusetts, 1283",
-      "birthDate": "Fri Apr 16 2021 10:28:30 GMT+0200 (heure d’été d’Europe centrale)",
-      "token": "2ee8cb4a-651e-49cd-9a96-db053a335aad"
-    },
-    {
       "id": 4,
       "natID": 25641,
       "isActive": false,
