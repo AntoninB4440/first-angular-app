@@ -8,11 +8,12 @@ import { AuthentificationService } from '../service/authentification/authentific
 })
 export class AuthGuard implements CanActivate{
 
+
   constructor(private authentificationService : AuthentificationService) {
     
   }
 
-  canActivate() {
+  canActivate() : any {
     if (localStorage.getItem('token')) {
       this.authentificationService.login(localStorage.getItem('token')).subscribe(res => {
         if (res.length) {
@@ -21,8 +22,9 @@ export class AuthGuard implements CanActivate{
           return false
         }
       })
+    } else {
+      return false
     }
-    return false
   }
   
 }
