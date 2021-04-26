@@ -13,7 +13,7 @@ export class AuthentificationService {
     this.baseUrl = 'http://localhost:3000/users/';
   }
   
-  login(email: string) {
+  login(email: string | null) {
     return this.http.get<User[]>(this.baseUrl + "?email=" + email);
   }
 }

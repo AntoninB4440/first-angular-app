@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    this.toastr.success('Log out','You will be redirected to the login screen in 2 sec');
+    this.toastr.success('Log out','You will be redirected to the login page in 2 sec');
     setTimeout(() => {
       this.router.navigate(['login']);
     }, 2000);

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.authentificationService.login(this.email).subscribe(res => {
       if (res.length) {
         localStorage.setItem("token", res[0].email);
-        this.toastr.success('Valid email','You will be redirected to the users list in 2 sec');
+        this.toastr.success('Valid email', 'You will be redirected to the users list in 2 sec');
         setTimeout(() => {
           this.router.navigate(['users']);
         }, 2000);
