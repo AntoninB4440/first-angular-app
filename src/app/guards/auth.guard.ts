@@ -13,15 +13,15 @@ export class AuthGuard implements CanActivate{
     
   }
 
-  canActivate() : any {
+  async canActivate() {
     if (localStorage.getItem('token')) {
-      this.authentificationService.login(localStorage.getItem('token')).subscribe(res => {
+      let res=  await this.authentificationService.login(localStorage.getItem('token')).toPromise();
         if (res.length) {
           return true
         } else {
           return false
         }
-      })
+
     } else {
       return false
     }

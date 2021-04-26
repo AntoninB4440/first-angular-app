@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { LoginComponent } from './login/login.component';
 import { EmailInterceptor } from './interceptor/http.interceptor';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { EmailInterceptor } from './interceptor/http.interceptor';
     HttpClientModule,
     FormsModule,
     ToastrModule.forRoot(),
-    NgbModule
+    NgbModule,
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
