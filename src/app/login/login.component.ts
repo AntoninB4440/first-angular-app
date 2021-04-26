@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { isEmpty } from 'underscore';
-import { AuthentificationService } from '../service/user/authentification.service';
-import { UserService } from '../service/user/user.service';
+import { AuthentificationService } from '../service/authentification/authentification.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.authentificationService.login(this.email).subscribe(res => {
-      if (!isEmpty(res)) {
+      if (res.length) {
+        localStorage.setItem("token", res[0].email);
         this.toastr.success('Valid email','You will be redirected to the users list in 2 sec');
         setTimeout(() => {
           this.router.navigate(['users']);

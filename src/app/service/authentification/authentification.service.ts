@@ -14,6 +14,6 @@ export class AuthentificationService {
   }
   
   login(email: string) {
-    return this.http.get<User>(this.baseUrl + "?email=" + email);
+    return this.http.get<User[]>(this.baseUrl + "?email=" + email);
   }
 }

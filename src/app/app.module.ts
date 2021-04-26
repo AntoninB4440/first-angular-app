@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './user-list/user-list.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { UsersAddComponent } from './users-add/users-add.component'
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -14,6 +14,7 @@ import { UserModifyComponent } from './user-modify/user-modify.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { LoginComponent } from './login/login.component';
+import { EmailInterceptor } from './interceptor/http.interceptor';
 
 
 @NgModule({
@@ -35,7 +36,11 @@ import { LoginComponent } from './login/login.component';
     ToastrModule.forRoot(),
     NgbModule
   ],
-  providers: [],
+  providers: [{
+    provide : HTTP_INTERCEPTORS,
+    useClass: EmailInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
