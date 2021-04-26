@@ -10,9 +10,9 @@ export class EmailInterceptor implements HttpInterceptor{
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        req.clone({
+        req = req.clone({
             setHeaders: {
-                Authorization : 'Bearer' + localStorage.getItem('token')
+                Authorization : "Bearer " + localStorage.getItem("token")
             }
         })
         return next.handle(req)

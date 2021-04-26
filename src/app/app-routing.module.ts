@@ -16,10 +16,10 @@ const routes: Routes = [
     path : "users/modify/:id" , component : UserModifyComponent
   },
   {
-    path : "users/login" , component : LoginComponent
+    path : "login" , component : LoginComponent
   },
   {
-    path : "**" , redirectTo : "users"
+    path : "**" , redirectTo : "login"
   },
 
 ];
