@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" routerLink="users"><i class="fa fa-user"></i> Users List</a>
           </li>
@@ -13,6 +13,7 @@
             <a class="nav-link" routerLink="users/add"><i class="fa fa-plus"></i> New User</a>
           </li>
         </ul>
+        <button type="button" class="btn btn-secondary" (click)="logout()">Logout</button>
       </div>
     </nav>
   </header>
